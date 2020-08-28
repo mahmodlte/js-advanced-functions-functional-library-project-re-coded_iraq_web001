@@ -100,13 +100,25 @@ const fi = (function () {
       return newArray.sort(compare);
     },
     
-    flatten: (array, shallow) => {
-      if (shallow === true) {
-        return array.flat(1);
-      } else {
-        return array.flat(Infinity);
-      }
-    },
+   flatten: function (array, shallow, result = []) {
+          for (let element of array){
+            isItArray(element)
+          }
+          return result
+
+          function isItArray(element) {
+            if (!Array.isArray(element)) {
+              result.push(element)
+              return
+            }
+            else {
+              for (let elementInside of element){
+                shallow ? result.push(elementInside) : isItArray(elementInside)
+              }
+              return
+            }
+          }
+        },
     uniq: (array, isSorted, callback) => {
       let values = [];
       let result = [];
