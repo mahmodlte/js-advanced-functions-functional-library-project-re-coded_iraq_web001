@@ -102,20 +102,20 @@ const fi = (function () {
     
    flatten: function (array, shallow, result = []) {
           for (let element of array){
-            isItArray(element)
+            isItArray(element);
           }
-          return result
+          return result;
 
           function isItArray(element) {
             if (!Array.isArray(element)) {
-              result.push(element)
-              return
+              result.push(element);
+              return;
             }
             else {
               for (let elementInside of element){
-                shallow ? result.push(elementInside) : isItArray(elementInside)
+                shallow ? result.push(elementInside) : isItArray(elementInside);
               }
-              return
+              return;
             }
           }
         },
