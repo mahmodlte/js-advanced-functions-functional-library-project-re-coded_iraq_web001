@@ -99,7 +99,8 @@ const fi = (function () {
       };
       return newArray.sort(compare);
     },
-  flatten: (array, shallow) => {
+    
+    flatten: (array, shallow) => {
       if (shallow === true) {
         return array.flat(1);
       } else {
